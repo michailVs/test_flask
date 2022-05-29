@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск работы на hh.ru</title>
+    <style>
+        section{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты поиска</h1>
+    <h3>Найдено {{resultsNumber}} результатов по запросу: {{searchBy}}</h3>
+    <a href="/export?keyword={{searchBy}}">Экспорт в CSV</a>
+    <section>
+        <h4>Название вакансии</h4>
+        <h4>Ссылка</h4>
+        {% for job in jobs %}
+            <span>{{job.title}}</span>
+            <a href="{{job.link}}" target="_blank">Перейти</a>
+        {% endfor %}
+    </section>
+</body>
+</html>
